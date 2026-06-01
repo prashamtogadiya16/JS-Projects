@@ -1,18 +1,55 @@
-let targetNumber = Math.floor(Math.random() * 100) + 1;
-let attempts = 0;
+const guessInput = document.getElementById('guess');         
+const submitBtn = document.querySelector('.check');          
+const message = document.querySelector('.message');
+const scoreDisplay = document.querySelector('.score');
+const highScoreDisplay = document.querySelector('.highscore');
+const resetBtn = document.querySelector('.btn');             
 
-let num = parseInt(prompt("Enter a number between 1 to 100"));
-attempts++; 
+let secretNumber = Math.floor(Math.random() * 20) + 1; 
+let score = 20;
+let highScore = 0;
 
-while (num !== targetNumber) {
-    if (num < targetNumber) {
-        alert("Guess higher");
-    } else {
-        alert("Guess Lower");
-    }
+submitBtn.addEventListener('click', () => {
+  const guess = Number(guessInput.value);
+
+  if (score <= 0) {
+    message.textContent = 'Game over! Press Again! to restart.';
+    return;
+  }
+
+  if (!guess) {
+    message.textContent = 'Please enter a number!';
+  } 
+  else if (guess === secretNumber) {
+    message.textContent = '🎉 Correct number!';
+    document.body.style.backgroundColor = '#60b347';
     
-    num = parseInt(prompt("Enter a number between 1 to 100"));
-    attempts++;
-}
+    document.querySelector('.number').textContent = secretNumber;
+    
+    if (score > highScore) {
+      highScore = score;
+      highScoreDisplay.textContent = highScore;
+    }
+  } 
+  else {
+    if (score > 1) {
+      message.textContent = guess > secretNumber ? 'Too high!' : 'Too low!';
+      score--;
+      scoreDisplay.textContent = score;
+    } else {
+      score = 0;
+      scoreDisplay.textContent = score;
+      message.textContent = 'Game over! You lost.';
+    }
+  }
+});
 
-alert(`Congrats!! You guessed it correctly in ${attempts} attempts!`);
+resetBtn.addEventListener('click', () => {
+  score = 20;
+  secretNumber = Math.floor(Math.random() * 20) + 1;
+  
+  scoreDisplay.textContent = score;
+  message.textContent = 'Start guessing...';
+  document.querySelector('.number').textContent = '?';
+  guessInput.value = ''; 
+});
