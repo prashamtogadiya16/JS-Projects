@@ -42,12 +42,14 @@ submitBtn.addEventListener('click', () => {
       message.textContent = 'Game over! You lost.';
     }
   }
+    guessInput.value = '';
+
 });
 
 resetBtn.addEventListener('click', () => {
   score = 20;
   secretNumber = Math.floor(Math.random() * 20) + 1;
-  
+  document.body.style.backgroundColor = '#222';
   scoreDisplay.textContent = score;
   message.textContent = 'Start guessing...';
   document.querySelector('.number').textContent = '?';
