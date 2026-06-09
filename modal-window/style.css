@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #80a0cf 50%, #507abe 100%);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#openModal{
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #76b3e6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#openModal:hover {
+    background-color: #5a9bd4;
+    transform: translateY(-2px);
+}
+.modal {
+    position: fixed;
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: white;
+    padding: 30px; 
+    width: 90%;    
+    max-width: 500px;
+    
+    max-height: 80vh;
+    overflow-y: auto;   
+    overflow-x: hidden; 
+
+    /* Layout inside the modal: */
+    display: flex;
+    flex-direction: column; /* Stacks your content vertically */
+    gap: 15px;             /* Spacing between your paragraphs/elements */
+    
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}

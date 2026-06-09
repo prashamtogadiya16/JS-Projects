@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <button id="openModal">Open Modal</button>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <p>This is a simple modal window. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae earum, autem voluptatibus ipsum modi sunt voluptates veritatis consequuntur ratione! Odit cum eos quos quas velit, sint consequuntur impedit nam quam nobis, doloribus aut enim sapiente, sit omnis modi repellendus quia iure illum adipisci voluptates quaerat atque possimus? Magni ipsa laborum excepturi tenetur perferendis corrupti ratione veniam voluptatem ipsum, provident ut sunt dignissimos! Quibusdam quis impedit molestiae sint, ducimus pariatur at dicta veritatis expedita ut esse nulla optio rerum laudantium, voluptates dolores. Corrupti corporis vel unde illum magnam similique error quibusdam dolore et dolorum eius, a quaerat quisquam exercitationem neque id voluptatibus. Fugit ducimus voluptas beatae a praesentium et aliquid, nulla quisquam sapiente alias vitae quaerat sit at rerum libero asperiores adipisci suscipit! Corporis temporibus asperiores consequatur quae totam sint ex deserunt pariatur architecto, doloribus magnam in error perferendis iure facilis culpa beatae rem mollitia amet molestiae sapiente eaque voluptatibus enim dicta. Aliquam quaerat, deleniti distinctio rerum reprehenderit ea quis. Ullam, cupiditate. Quidem magnam adipisci nesciunt veritatis cumque ratione. Adipisci esse est voluptatem quis inventore nihil maxime perspiciatis. Sit deserunt repellendus consequuntur saepe laborum ut quasi quis est eius praesentium, aliquam quae repudiandae accusamus laboriosam cumque necessitatibus ex velit voluptate debitis odit. Consectetur sit esse magni, ut deserunt deleniti molestiae, sed voluptatibus hic eum placeat corporis porro inventore vel molestias asperiores beatae voluptates consequuntur nobis aspernatur! Nobis officia quis ea laudantium alias laboriosam in enim labore et reprehenderit facere commodi consectetur cumque quidem, praesentium, sed, modi eaque ipsa debitis eum. Reiciendis esse reprehenderit aliquid, modi expedita sapiente nam dolores nesciunt aspernatur consectetur voluptatem perspiciatis aliquam necessitatibus eos doloribus? Quisquam obcaecati placeat officia eligendi perferendis, nemo dolores tenetur repudiandae dignissimos, aliquam rem ullam totam reprehenderit laboriosam quaerat quam at. Dolorum eius exercitationem odio ex. Facere non nobis, eligendi ea animi ab dolorem laboriosam obcaecati, est nesciunt rerum impedit fugit? Harum impedit explicabo, nostrum, maxime accusamus enim eveniet facere inventore beatae, repudiandae recusandae repellendus nemo fugit aut? Consequuntur sed corporis, minima soluta, corrupti nulla voluptatibus eum dolores sunt vitae hic dolorum quis, omnis voluptates ab voluptate ullam rerum officiis a? Fugit nisi cumque exercitationem quibusdam amet illo deserunt quae impedit? Fugit saepe eligendi esse aliquid eos optio excepturi libero iure! Quaerat natus quasi repellendus asperiores. Ducimus nostrum eveniet velit et dignissimos optio. Minima ex facilis, quos suscipit fugiat id reprehenderit nemo deserunt accusamus harum corporis nostrum eius dolorum numquam hic, unde nobis laborum?</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+
+        // Open modal
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close modal if user clicks the dark backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
